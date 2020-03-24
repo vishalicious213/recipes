@@ -8,7 +8,12 @@
   text-shadow: 2px 2px 2px black;
   margin-top: 1rem;
   margin-bottom: 0;
-  font-size: 3rem;
+  font-size: 3.5rem;
+}
+
+.subtitle {
+  color: black;
+  text-align: center;
 }
 
 .search-form {

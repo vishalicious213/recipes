@@ -1,6 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import Recipe from './Recipe';
+import styled from 'styled-components';
 import './App.css';
+
+const StyledDiv = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media only screen and (max-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -31,12 +51,13 @@ function App() {
   return (
     <div className='App'>
       <h1 className='title'>10 Recipes</h1>
+      <p className='subtitle'>Powered by <a href='https://www.edamam.com'>Edamam Recipe Search API</a></p>
       <form className='search-form' onSubmit={getSearch}>
         <input className='search-bar' type='text' value={search} onChange={updateSearch} placeholder='chicken'/>
         <button className='search-button' type='submit'>Search</button>
       </form>
 
-      <div className='recipes'>
+      <StyledDiv>
         {recipes.map(recipe =>(
           <Recipe
             key={recipe.recipe.label}
@@ -51,7 +72,7 @@ function App() {
             image={recipe.recipe.image}
             ingredients={recipe.recipe.ingredients} />
         ))}
-      </div>
+      </StyledDiv>
     </div>
   );
 }
