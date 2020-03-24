@@ -41,8 +41,13 @@ function App() {
           <Recipe
             key={recipe.recipe.label}
             title={recipe.recipe.label}
+            link={recipe.recipe.shareAs}
+            time={recipe.recipe.totalTime}
             servings={recipe.recipe.yield}
             calories={recipe.recipe.calories}
+            diets={recipe.recipe.dietLabels}
+            health={recipe.recipe.healthLabels}
+            cautions={recipe.recipe.cautions}
             image={recipe.recipe.image}
             ingredients={recipe.recipe.ingredients} />
         ))}
